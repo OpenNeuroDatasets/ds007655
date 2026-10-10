@@ -25,7 +25,7 @@
   },
   "mean_accuracy_dotcount": {
     "Description": "Mean accuracy in task-dotcount",
-    "Units": "percent"
+    "Units": "proportion"
   },
   "mean_rt_dotcount_ms": {
     "Description": "Mean RT in task-dotcount",
@@ -33,7 +33,7 @@
   },
   "mean_accuracy_firstlast": {
     "Description": "Mean accuracy in task-firstlast",
-    "Units": "percent"
+    "Units": "proportion"
   },
   "mean_rt_firstlast_ms": {
     "Description": "Mean RT in task-firstlast",
