@@ -1,0 +1,28 @@
+{
+  "onset": {
+    "Description": "Event onset relative to recording start",
+    "Units": "s"
+  },
+  "duration": {
+    "Description": "Stimulus presentation duration",
+    "Units": "s"
+  },
+  "sample": {
+    "Description": "Event onset sample index (1-based, matches .vmrk)"
+  },
+  "trial_type": {
+    "Description": "Trial-level Morse code stimulus identifier derived from the trigger value"
+  },
+  "value": {
+    "Description": "Raw trigger value from amplifier"
+  },
+  "block": {
+    "Description": "Experimental block number within each task (1/2/3; each block contains 52 trials)"
+  },
+  "speed": {
+    "Description": "Presentation-rate condition of the Morse code stimulus (15CPM, 30CPM, or 40CPM)"
+  },
+  "stim_file": {
+    "Description": "Path to the corresponding audio stimulus file relative to /stimuli"
+  }
+}

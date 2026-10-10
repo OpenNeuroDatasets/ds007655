@@ -1,0 +1,16 @@
+{
+  "TaskName": "dotcount",
+  "TaskDescription": "Auditory discrimination task requiring participants to report the number of dots in the presented Morse code character",
+  "SamplingFrequency": 600,
+  "EEGChannelCount": 62,
+  "EEGReference": "right earlobe",
+  "PowerLineFrequency": 50,
+  "RecordingType": "continuous",
+  "Manufacturer": "g.tec medical engineering GmbH",
+  "ManufacturersModelName": "g.HIamp",
+  "InstitutionName": "Information Engineering University",
+  "InstitutionAddress": "Zhengzhou, Henan, China",
+  "SoftwareFilters": "n/a",
+  "TaskDesign": "Two auditory discrimination tasks under three presentation-rate conditions using Morse code stimuli",
+  "ExperimentalApproach": "Auditory temporal processing, temporal pattern discrimination, and listening ability assessment"
+}

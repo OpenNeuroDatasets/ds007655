@@ -1,0 +1,16 @@
+{
+  "TaskName": "firstlast",
+  "TaskDescription": "Auditory discrimination task requiring participants to judge whether the first and last elements of the presented Morse code character are identical",
+  "SamplingFrequency": 600,
+  "EEGChannelCount": 62,
+  "EEGReference": "right earlobe",
+  "PowerLineFrequency": 50,
+  "RecordingType": "continuous",
+  "Manufacturer": "g.tec medical engineering GmbH",
+  "ManufacturersModelName": "g.HIamp",
+  "InstitutionName": "Information Engineering University",
+  "InstitutionAddress": "Zhengzhou, Henan, China",
+  "SoftwareFilters": "n/a",
+  "TaskDesign": "Two auditory discrimination tasks under three presentation-rate conditions using Morse code stimuli",
+  "ExperimentalApproach": "Auditory temporal processing, temporal pattern discrimination, and listening ability assessment"
+}

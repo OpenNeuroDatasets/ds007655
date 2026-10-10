@@ -1,0 +1,6 @@
+1.0.2 2026-10-10
+  - Updated the dataset README and companion code documentation. Updated the MATLAB preprocessing and analysis scripts, and provided the Python/PyTorch implementation of LOSO classification. Corrected EEG channel-quality metadata, electrode-location information, and participant accuracy-unit descriptions.
+1.0.1 2026-04-22
+  - 20260422
+1.0.0 2026-04-20
+  - 20260420

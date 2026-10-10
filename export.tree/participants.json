@@ -1,0 +1,42 @@
+{
+  "participant_id": {
+    "Description": "Unique participant identifier"
+  },
+  "age": {
+    "Description": "Age of participant",
+    "Units": "years"
+  },
+  "sex": {
+    "Description": "Biological sex",
+    "Levels": {
+      "male": "Male",
+      "female": "Female"
+    }
+  },
+  "handedness": {
+    "Description": "Dominant hand",
+    "Levels": {
+      "right": "Right-handed",
+      "left": "Left-handed"
+    }
+  },
+  "tasks_participated": {
+    "Description": "Tasks completed (comma-separated)"
+  },
+  "mean_accuracy_dotcount": {
+    "Description": "Mean accuracy in task-dotcount",
+    "Units": "proportion"
+  },
+  "mean_rt_dotcount_ms": {
+    "Description": "Mean RT in task-dotcount",
+    "Units": "ms"
+  },
+  "mean_accuracy_firstlast": {
+    "Description": "Mean accuracy in task-firstlast",
+    "Units": "proportion"
+  },
+  "mean_rt_firstlast_ms": {
+    "Description": "Mean RT in task-firstlast",
+    "Units": "ms"
+  }
+}
