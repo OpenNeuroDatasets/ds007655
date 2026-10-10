@@ -1,0 +1,23 @@
+Stimulus materials for the MorseEEG-ATP dataset.
+
+These materials support a multitask EEG study of auditory temporal processing and listening ability assessment using Morse code (MC). MC serves as a controlled auditory stimulus model with discrete acoustic units and explicit temporal rules, enabling systematic manipulation of temporal rate and task demand.
+
+Contents
+--------
+- audio/: audio stimulus files used in the experiment.
+- stimulus_label_mapping.xlsx: Excel file documenting the mapping between labels and stimuli.
+- stimulus_label_mapping.tsv: TSV version of the same mapping.
+
+Design notes
+------------
+- Trigger labels 1-78 represent stimulus labels.
+- Labels 1-26 correspond to the 15 CPM condition.
+- Labels 27-52 correspond to the 30 CPM condition.
+- Labels 53-78 correspond to the 40 CPM condition.
+- Each experimental block contains 52 trials, with 26 Morse characters repeated twice.
+- In events.tsv, stim_file is stored as a path relative to /stimuli, such as audio/xxx.mp3.
+
+Summary
+-------
+- Number of copied audio files: 78
+- These files enable reproducible comparisons across task demands and presentation-rate conditions.
