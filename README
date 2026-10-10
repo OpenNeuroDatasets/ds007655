@@ -1,0 +1,63 @@
+MorseEEG-ATP: An EEG dataset for structured auditory sequence processing with Morse code sound
+
+===================================
+
+Introduction
+------------
+MorseEEG-ATP is a publicly available multitask electroencephalography (EEG) dataset for investigating the processing of temporally structured auditory sequences. The dataset was designed to support research on how auditory sequence information is encoded, maintained, and used under different behavioral decision rules. Morse code (MC) provides a controlled stimulus model consisting of short and long acoustic elements arranged according to predefined rules. By presenting the same auditory sequences under two distinct task rules, the dataset supports within-participant comparisons of neural and behavioral responses to structured sound sequences.
+
+Dataset Content
+---------------
+The dataset contains synchronously recorded EEG and behavioral data from 32 healthy adult participants (14 females). Data were collected with a 62-channel EEG system at a sampling rate of 600 Hz and are organized in an EEG-BIDS compatible structure (BIDS v1.10.1). The release includes:
+
+1. Raw EEG recordings in BrainVision format (`.vhdr`, `.vmrk`, `.eeg`) together with BIDS sidecar files.
+2. Minimally preprocessed EEG data under `derivatives/preprocessed/` for reproducible downstream analysis.
+3. Trial-aligned event annotations, including event onsets, trigger values, block labels, speed conditions, and stimulus file references.
+4. Behavioral measures including accuracy and reaction time, together with participant-level summary information.
+5. The 78 MP3 auditory stimuli and associated stimulus metadata in stimuli/.
+6. Companion MATLAB and Python scripts for preprocessing and benchmark analyses.
+
+Experimental Design
+-------------------
+- Tasks: The experiment includes two auditory discrimination tasks that share the same stimulus set and trial structure but differ in decision rules.
+- Dot-count task (task-dotcount): Participants report the number of dots contained in the presented Morse code character.
+- First-last match task (task-firstlast): Participants judge whether the first and last elements of the presented Morse code character are identical.
+- Presentation-rate conditions: Each task includes three nominal software-defined presentation-rate conditions labeled 15, 30, and 40 characters per minute (CPM). Acoustic timing measurements showed that temporal parameters were not uniformly scaled across these conditions. All participants completed the dot-count task before the first–last matching task, with the three nominal CPM blocks presented in the fixed order of 15, 30, and 40 CPM.
+- Rationale: By combining shared auditory stimuli with different decision rules, the dataset supports investigations of structured auditory sequence processing, task-associated EEG responses, and cross-task correspondence.
+- Trial procedure: Each trial consists of a fixation period, stimulus presentation, a response window, and a jittered inter-trial interval.
+
+Data Acquisition
+----------------
+- EEG System: g.tec medical engineering GmbH g.HIamp.
+- Sampling Rate: 600 Hz.
+- Online Filtering: 0.1-100 Hz bandpass filter and a 48-52 Hz notch filter.
+- Effective Channels: 62 scalp electrodes arranged according to an extended international 10–20 system.
+- Reference Electrode: right earlobe.
+- Stimulus and behavior software: Stimuli were presented and behavioral responses were collected using E-Prime 3.0.
+
+Research Value
+--------------
+MorseEEG-ATP provides a controlled framework for investigating the processing of structured auditory sequences under different task demands. The predefined composition and order of MC stimuli, combined with distinct decision rules, support comparisons of behavioral and EEG features within the same participants. The availability of continuous EEG, behavioral recordings, auditory stimuli, preprocessed derivatives, and analysis scripts also supports studies of individual differences, cross-task generalization, and the development and evaluation of auditory EEG analysis methods.
+
+Technical Validation Highlights
+-------------------------------
+Technical validation includes behavioral performance, EEG data quality and preprocessing yield, stimulus-marker-locked event-related EEG responses, and exploratory analyses of task-performance-related EEG spectral variation. These analyses support the quality and usability of the dataset for research on structured auditory sequence processing.
+
+Data Quality Notes
+------------------
+Known unusable EEG channels:
+- PO4 (channel 56) in sub-13 and sub-14.
+- TP8 (channel 43) in sub-15.
+The original signals were preserved in the continuous EEG data. During baseline preprocessing, the affected channels were replaced using arithmetic means of predefined neighboring electrodes.
+
+Usage Recommendations
+---------------------
+- Citation: Please cite the MorseEEG-ATP dataset (OpenNeuro accession ds007655) and the associated article when available.
+- Preprocessing: The continuous EEG data preserve software-defined stimulus event markers. The companion preprocessing pipeline can be used directly or adapted for related studies.
+- Analysis: The derivative .mat files are organized by experimental block and retained trial. Individual retained trials do not contain separate original trial indices or stimulus event codes.
+- Applications: The dataset supports studies of structured auditory sequence processing, task-associated EEG responses, individual differences, and cross-task analysis. It may also be used to evaluate EEG processing and neural decoding methods.
+- Code: MATLAB scripts Step0–Step5 and Python/PyTorch Step6 are provided in code/, with usage instructions in code/README_Code.md.
+
+Summary
+-------
+MorseEEG-ATP provides a standardized and openly reusable EEG resource for studying structured auditory sequence processing using controlled Morse code sounds. By combining predefined auditory sequences, distinct decision rules, and EEG and behavioral recordings, the dataset supports investigations of sequence processing, individual differences, and the evaluation of EEG analysis methods.
