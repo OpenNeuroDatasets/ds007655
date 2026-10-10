@@ -1,62 +1,73 @@
-MorseEEG-ATP: a multitask EEG dataset for exploring auditory temporal processing with Morse code
+MorseEEG-ATP: an EEG dataset for structured auditory sequence processing with Morse code sound
 
 ===================================
 
 Introduction
-------------
-MorseEEG-ATP is a publicly available multitask electroencephalography (EEG) dataset for studying auditory temporal processing and temporal pattern discrimination using Morse code (MC) stimuli. Auditory temporal processing refers to the ability of the auditory system to perceive, encode, and integrate the temporal structure of sounds. The dataset was designed to address the relative lack of open resources targeting the intermediate stage between low-level acoustic encoding and higher-level language or cognitive processing, namely the extraction and discrimination of stable temporal patterns from discrete acoustic elements governed by explicit temporal rules. MC provides a controlled and parameterizable stimulus model for this purpose because it consists of short and long acoustic elements combined according to fixed rules, has a clear and stable temporal structure, and depends relatively little on lexical or semantic knowledge in untrained listeners.
+
+MorseEEG-ATP is a publicly available multitask electroencephalography (EEG) dataset for investigating the processing of temporally structured auditory sequences. The dataset was designed to support research on how sequence composition and order are encoded, maintained, and used under different behavioral decision rules.
+Morse code (MC) provides a controlled auditory stimulus model in which short and long acoustic elements are arranged according to predefined sequences. By presenting the same MC sounds under two distinct task rules, MorseEEG-ATP enables within-participant comparisons of neural and behavioral responses to structured auditory sequences without requiring participants to decode the corresponding English letters.
 
 Dataset Content
----------------
-The dataset contains synchronously recorded EEG and behavioral data from 32 healthy adult participants (14 females). Data were collected with a 62-channel EEG system at a sampling rate of 600 Hz and are organized in an EEG-BIDS compatible structure (BIDS v1.10.1). The release includes:
 
-1. Raw EEG recordings in BrainVision format (`.vhdr`, `.vmrk`, `.eeg`) together with BIDS sidecar files.
-2. Minimally preprocessed EEG data under `derivatives/preprocessed/` for reproducible downstream analysis.
-3. Trial-aligned event annotations, including event onsets, trigger values, block labels, speed conditions, and stimulus file references.
-4. Behavioral measures including accuracy and reaction time, together with participant-level summary information.
-5. Companion preprocessing and benchmark analysis scripts.
+The dataset contains EEG and behavioral recordings from 32 healthy adults (14 females; mean age 21.9 ± 1.5 years) without prior MC training. EEG was recorded using 62 scalp channels at a sampling rate of 600 Hz. The data are organized according to EEG-BIDS conventions (BIDS v1.10.1).
+The dataset includes:
+Continuous EEG recordings in BrainVision format (.vhdr, .vmrk, .eeg) with associated BIDS metadata.
+Baseline-preprocessed EEG derivatives stored in derivatives/preprocessed/.
+Trial-level event annotations containing stimulus codes, block labels, nominal presentation-rate conditions, and stimulus references.
+Behavioral records including responses, accuracy, and reaction-time information.
+The 78 MP3 auditory stimuli and corresponding metadata in stimuli/.
+Companion MATLAB and Python scripts for data conversion, preprocessing, technical validation, spectral analysis, and classification.
 
 Experimental Design
--------------------
-- **Tasks**: The experiment includes two auditory discrimination tasks that share the same stimulus set and trial structure but differ in decision rules.
-  - **Dot-count task (`task-dotcount`)**: Participants report the number of dots contained in the presented Morse code character.
-  - **First-last match task (`task-firstlast`)**: Participants judge whether the first and last elements of the presented Morse code character are identical.
-- **Presentation-rate conditions**: Each task includes three presentation-rate conditions defined by Morse character transmission speed: 15, 30, and 40 characters per minute (CPM). These conditions support comparisons across different temporal-rate demands.
-- **Rationale**: By jointly manipulating task rules and presentation rate, the dataset supports comparative analyses of auditory temporal processing, temporal pattern discrimination, and listening ability assessment across processing demands and speed conditions.
-- **Trial procedure**: Each trial consists of a fixation period, stimulus presentation, a response window, and a jittered inter-trial interval.
+
+The experiment included two auditory tasks using the same stimulus set but different decision rules:
+*Dot-count task (task-dotcount, Exp1): Participants reported the number of short elements (dots) in each MC character using numeric keys 0–4.
+*First–last matching task (task-firstlast, Exp2): Participants judged whether the first and final elements belonged to the same duration category (1 = match, 0 = mismatch).
+The stimulus set comprised 78 MP3 files corresponding to 26 English letters under three software-defined conditions labeled 15, 30, and 40 characters per minute (CPM). Stimuli were generated using MC training software with a tone frequency of 1100 Hz. Direct acoustic measurements of the final MP3 files, including short- and long-element durations, within-character intervals, and total file durations, are reported in the accompanying manuscript. These measurements show that temporal parameters were not uniformly scaled across the three conditions. Therefore, CPM values are treated as nominal condition labels.
+Participants completed the dot-count task first, followed by the first–last matching task. Each task included 10 practice trials and three formal blocks presented in the fixed order of 15, 30, and 40 CPM. Each formal block contained 52 trials (26 letters presented twice), yielding 156 formal trials per task and 312 per participant.
+Each trial consisted of a 300-ms fixation period, auditory stimulus presentation, a response window of up to 3000 ms, and a randomized intertrial interval of 1000–3000 ms.
 
 Data Acquisition
-----------------
-- **EEG System**: g.tec medical engineering GmbH g.HIamp.
-- **Sampling Rate**: 600 Hz.
-- **Online Filtering**: 0.1-100 Hz bandpass filter and a 48-52 Hz notch filter.
-- **Effective Channels**: 62 scalp electrodes arranged according to the International 10-20 system.
-- **Reference Electrode**: right earlobe.
-- **Stimulus and behavior software**: Stimuli were presented and behavioral responses were collected using E-Prime 3.0.
+
+EEG system: g.tec g.HIamp.
+Sampling rate: 600 Hz.
+Online filtering: 0.1–100 Hz bandpass and 48–52 Hz notch filters.
+EEG channels: 62 scalp electrodes arranged according to an extended international 10–20 system.
+Reference electrode: Right earlobe.
+Stimulus presentation and behavioral recording: E-Prime 3.0.
+Auditory presentation: Free-field loudspeakers.
+Stimulus event codes marked the software-defined initiation of playback of each complete MC character. Individual short and long elements were not separately marked in the EEG recordings. The delay between the software event marker and physical acoustic onset at the loudspeaker was not independently measured.
 
 Research Value
---------------
-The value of MorseEEG-ATP lies in three main aspects. First, at the level of experimental paradigm, the dataset is built on the discrete acoustic units and explicit temporal rules of MC, while systematically integrating task demands and presentation-rate manipulations within a unified framework. This provides a reproducible and parameterizable paradigm for studying auditory temporal pattern discrimination based on explicit temporal rules. Second, at the level of assessment methodology, the dataset combines multitask conditions, cross-rate manipulations, trial-aligned EEG recordings, and behavioral measures, supporting comparisons of neural and behavioral performance across different processing demands and speed conditions, as well as the development and validation of methods for listening ability assessment. Third, as a research resource, the dataset provides raw and preprocessed data, event annotations, behavioral measures, and analysis scripts in a standardized format, thereby supporting studies of rhythm perception, related individual differences, EEG analysis methods, neural decoding models, and auditory brain-computer interface approaches under cross-condition generalization settings.
+
+MorseEEG-ATP provides a controlled framework for investigating structured auditory sequence processing under different task demands. Its predefined stimulus composition and order support investigations of temporal sequence representations, while the shared stimuli and distinct decision rules enable comparisons of task-associated behavioral and EEG features.
+The availability of continuous EEG, behavioral recordings, auditory stimuli, baseline-preprocessed derivatives, and analysis code also supports research on individual differences, cross-task correspondence and generalization, and the development and evaluation of auditory EEG analysis methods.
 
 Technical Validation Highlights
--------------------------------
-According to the accompanying paper, technical validation is provided through behavioral performance, event-related potential responses, and listening-related measures, supporting the quality and usability of the dataset.
+
+Technical validation was conducted through behavioral performance, EEG preprocessing yield, stimulus-marker-locked event-related responses, and exploratory analyses of task-performance-related EEG variation.
+Mean behavioral accuracy was 77.6% in Exp1 and 84.1% in Exp2. Following baseline preprocessing, 3,731 of 4,992 formal trials (74.74%) were retained in Exp1 and 4,225 of 4,992 trials (84.64%) in Exp2, yielding an overall retention rate of 79.69%.
+Stimulus-marker-locked EEG responses were observable in both tasks. Exploratory spectral analyses also identified Alpha-band PSD variation associated with behaviorally defined task-performance groups. These results support the usability of the dataset for event-related EEG analyses and investigations of individual differences in structured auditory sequence processing.
 
 Data Quality Notes
-------------------
-- **Data corruption**:
-  - Channel 56 data for participant `sub-13` are corrupted.
-  - Channel 56 data for participant `sub-14` are corrupted.
-  - Channel 43 data for participant `sub-15` are corrupted.
-- In the minimally preprocessed data, these corrupted channels have been interpolated using neighboring electrodes.
+
+Three participants had identified unusable EEG channels:
+sub-13: PO4 (channel 56).
+sub-14: PO4 (channel 56).
+sub-15: TP8 (channel 43).
+The originally acquired signals were preserved in the continuous EEG recordings. During baseline preprocessing, the affected channels were replaced using arithmetic means of predefined neighboring electrodes.
+The baseline preprocessing included average rereferencing, 1–40 Hz filtering, trial epoching, baseline correction, and amplitude-threshold-based trial rejection. The resulting derivatives are reference preprocessing outputs rather than fully artifact-corrected EEG data.
 
 Usage Recommendations
----------------------
-- **Citation**: Please cite the associated Scientific Data article when using this dataset.
-- **Preprocessing**: The raw data preserve complete trigger markers. The companion preprocessing pipeline can be used directly or adapted for related studies.
-- **Analysis**: The derivative `.mat` files are organized for efficient comparison across blocks and presentation-rate conditions.
-- **Applications**: The dataset primarily supports studies of auditory temporal processing, temporal pattern discrimination, cross-condition EEG analysis, and listening-related individual differences. It may also be useful for benchmarking EEG analysis and neural decoding methods.
+
+Citation: Please cite the MorseEEG-ATP dataset (OpenNeuro accession ds007655) and the associated Scientific Data article when available.
+Raw EEG: The continuous recordings support alternative preprocessing and analysis procedures.
+Preprocessed EEG: The MATLAB .mat files are organized by experimental block and retained trial. Individual retained trials do not contain separate original trial indices or stimulus event codes.
+Behavioral timing: Resposetime represents the response interval after audio playback, whereas stimutoRT_time includes both audio-file duration and the subsequent response interval.
+Experimental conditions: CPM labels are nominal, and task and block orders were fixed rather than counterbalanced.
+Event timing: EEG event markers represent software-defined audio-playback initiation rather than independently calibrated physical acoustic onset.
+Analysis code: MATLAB scripts Step0–Step5 and Python/PyTorch Step6 are provided in code/. See code/README_Code.md and code/ENVIRONMENT_DEPENDENCIES.md for instructions and software requirements.
 
 Summary
--------
-MorseEEG-ATP provides a standardized and shareable EEG resource for studying auditory temporal processing with controlled Morse code stimuli. It bridges a gap between low-level acoustic encoding datasets and higher-level language datasets by targeting the extraction and discrimination of temporal patterns governed by explicit rules. The resource supports research on temporal pattern discrimination, individual differences, and listening ability assessment, while also providing a useful benchmark for EEG analysis and decoding methods.
+
+MorseEEG-ATP provides an openly reusable EEG and behavioral resource for studying the encoding, maintenance, and task-dependent use of temporally structured auditory sequences. By combining controlled Morse-code sounds, distinct decision rules, and multiple levels of EEG and behavioral data, the dataset supports investigations of auditory sequence processing, individual differences, and the evaluation of EEG analysis and decoding methods.
